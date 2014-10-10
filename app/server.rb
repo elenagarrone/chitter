@@ -20,6 +20,13 @@ get '/' do
 	erb :index
 end
 
+post '/peeps' do
+	peep = params["peep"]
+	Peep.create(:message => peep)
+	redirect to('/')
+end
+
+
 get '/users/new' do
 	erb :"users/new"
 end
