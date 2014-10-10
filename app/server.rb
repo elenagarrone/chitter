@@ -2,6 +2,7 @@ require 'sinatra'
 require 'data_mapper'
 require 'rack-flash'
 require './app/models/user'
+require './app/helpers/application'
 
 # use Rack::Flash, :sweep => true
 
@@ -14,6 +15,9 @@ require './app/models/peep'
 DataMapper.finalize
 
 DataMapper.auto_upgrade!
+
+enable :sessions
+set :session_secret, 'super_secret'
 
 get '/' do
 	@peeps = Peep.all
@@ -32,8 +36,11 @@ get '/users/new' do
 end
 
 post '/users' do
-	User.create(:email => params[:email],
+	user = User.create(:email => params[:email],
 				:password => params[:password],
+				:password_confirmation => params[:password_confirmation],
 				:username => params[:username])
+	session[:user_id] = user.id
 	redirect to ('/')
 end
+

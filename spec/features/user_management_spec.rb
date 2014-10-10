@@ -21,16 +21,23 @@ context "In order to use chitter as a maker I want to: " do
 			expect(User.first.username).to eq("elena15")
 		end
 
+		scenario "with a password that doesn't match" do
+			expect{sign_up('e@e.com', 'pass', 'tra', 'username')}.to change(User, :count).by (0)
+		end
+
 		def sign_up(username = "elena15",
 					email = "elena@example.com",
-					password = "elena")
+					password = "elena",
+					password_confirmation = "elena")
 			visit 'users/new'
 			expect(page.status_code).to eq(200)
 			fill_in :username, :with => username
 			fill_in :email, :with => email
 			fill_in :password, :with => password
+			fill_in :password_confirmation, :with => password_confirmation
 			click_button "Sign up"
 		end
+
 	end
 
 
