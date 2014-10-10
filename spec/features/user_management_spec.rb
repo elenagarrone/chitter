@@ -28,16 +28,18 @@ context "In order to use chitter as a maker I want to: " do
 		scenario "with a password that doesn't match" do
 			expect{sign_up('e@e.com', 'pass', 'tra', 'username')}.to change(User, :count).by (0)
 			expect(current_path).to eq('/users')
-			expect(page).to have_content("Sorry, your password is incorrect.")
+			expect(page).to have_content("Sorry, ether your password is incorrect or your username is already in use. Try again.")
 		end
 
 
-		def sign_up(username = "elena15",
+		def sign_up(name = "Elena Garrone",
+					username = "elena15",
 					email = "elena@example.com",
 					password = "elena",
 					password_confirmation = "elena")
 			visit 'users/new'
 			expect(page.status_code).to eq(200)
+			fill_in :name, :with => name
 			fill_in :username, :with => username
 			fill_in :email, :with => email
 			fill_in :password, :with => password

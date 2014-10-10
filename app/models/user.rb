@@ -6,6 +6,7 @@ class User
 
 	property :id, Serial
 	property :email, String, :unique => true, :message => "This email is already teken"
+	property :name, String
 	property :username, String, :unique => true, :message => "This username is already taken"
 	property :password_digest, Text
 
