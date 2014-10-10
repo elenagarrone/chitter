@@ -20,7 +20,7 @@ enable :sessions
 set :session_secret, 'super_secret'
 
 get '/' do
-	@peeps = Peep.all
+	@peeps = Peep.all#:order => [:order_peep.desc]
 	erb :index
 end
 
@@ -46,7 +46,7 @@ post '/users' do
 		session[:user_id] = @user.id
 		redirect to ('/')
 	else
-		flash[:notice] = "Sorry, ether your password is incorrect or your username is already in use. Try again."
+		flash.now[:errors] = @user.errors.full_messages
 		erb :"users/new"
 	end
 end
