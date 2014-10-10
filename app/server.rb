@@ -4,7 +4,7 @@ require 'rack-flash'
 require './app/models/user'
 require './app/helpers/application'
 
-# use Rack::Flash, :sweep => true
+use Rack::Flash, :sweep => true
 
 env = ENV["RACK_ENV"] || "development"
 
@@ -32,15 +32,21 @@ end
 
 
 get '/users/new' do
+	@user = User.new
 	erb :"users/new"
 end
 
 post '/users' do
-	user = User.create(:email => params[:email],
+	@user = User.create(:email => params[:email],
 				:password => params[:password],
 				:password_confirmation => params[:password_confirmation],
 				:username => params[:username])
-	session[:user_id] = user.id
-	redirect to ('/')
+	if @user.save
+		session[:user_id] = @user.id
+		redirect to ('/')
+	else
+		flash[:notice] = "Sorry, your password is incorrect."
+		erb :"users/new"
+	end
 end
 
