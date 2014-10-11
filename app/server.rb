@@ -20,7 +20,7 @@ enable :sessions
 set :session_secret, 'super_secret'
 
 get '/' do
-	@peeps = Peep.all#:order => [:order_peep.desc]
+	@peeps = Peep.all:order => [:time_peep.asc] #not really working
 	erb :index
 end
 
