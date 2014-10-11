@@ -59,3 +59,8 @@ post '/sessions' do
 	end
 end
 
+delete '/sessions' do
+	session.clear
+	"Good bye!"
+end
+

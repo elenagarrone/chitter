@@ -1,4 +1,7 @@
 require 'spec_helper'
+require_relative 'helpers/session'
+
+include SessionHelpers
 
 feature "In order to see what people have to say, I want to see all peeps: " do
 	before(:each) {
@@ -43,22 +46,6 @@ context "In order to use chitter as a maker I want to: " do
 			expect(page).to have_content("This username is already taken")
 		end
 
-
-		def sign_up(name = "Elena Garrone",
-					username = "elena15",
-					email = "elena@example.com",
-					password = "elena",
-					password_confirmation = "elena")
-			visit 'users/new'
-			expect(page.status_code).to eq(200)
-			fill_in :name, :with => name
-			fill_in :username, :with => username
-			fill_in :email, :with => email
-			fill_in :password, :with => password
-			fill_in :password_confirmation, :with => password_confirmation
-			click_button "Sign up"
-		end
-
 	end
 
 	feature "sign in" do
@@ -85,12 +72,24 @@ context "In order to use chitter as a maker I want to: " do
 			expect(page).not_to have_content("Welcome, elena15")
 		end
 
-		def sign_in(username, password)
-			visit '/sessions/new'
-			fill_in 'username', :with => username
-			fill_in 'password', :with => password
-			click_button 'Sign in'
-		end
 	end		
+
+	feature "sing out" do
+
+		before(:each) do
+			User.create(:name => "Elena Garrone",
+						:username => "elena15",
+						:email => "elena@example.com",
+						:password => "elena",
+						:password_confirmation => "elena")
+		end
+
+		scenario "while being signed in" do
+			sign_in('elena15', 'elena')
+			click_button "Sign out"
+			expect(page).to have_content("Good bye!")
+			expect(page).not_to have_content("Welcome, elena15")
+		end
+	end
 
 end
