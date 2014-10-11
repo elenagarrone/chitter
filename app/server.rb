@@ -2,25 +2,17 @@ require 'sinatra'
 require 'data_mapper'
 require 'rack-flash'
 require './app/models/user'
-require './app/helpers/application'
+require './app/models/peep'
+require_relative './helpers/application'
+require_relative 'data_mapper_setup'
 
 use Rack::Flash, :sweep => true
-
-env = ENV["RACK_ENV"] || "development"
-
-DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
-
-require './app/models/peep'
-
-DataMapper.finalize
-
-DataMapper.auto_upgrade!
 
 enable :sessions
 set :session_secret, 'super_secret'
 
 get '/' do
-	@peeps = Peep.all:order => [:time_peep.asc] #not really working
+	@peeps = Peep.all:order => [:time_peep.asc] #not really working why???
 	erb :index
 end
 
