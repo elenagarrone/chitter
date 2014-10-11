@@ -7,4 +7,6 @@ class Peep
 	property :time_peep, Time
 	property :date, Text, :default => (Time.now.strftime("%H:%M - %d/%m/%Y"))
 
+	validates_length :message, :in => (1..200)
+
 end
