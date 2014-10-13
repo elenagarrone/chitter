@@ -8,4 +8,6 @@ class Peep
 
 	validates_length_of :message, :in => (1..200)
 
+	has 1, :user, :through => Resource
+
 end
