@@ -10,7 +10,7 @@ enable :sessions
 set :session_secret, 'super_secret'
 
 get '/' do
-	@peeps = Peep.all:order => [:time_peep.asc] #not really working why???
+	@peeps = Peep.all.reverse 
 	erb :index
 end
 
@@ -94,6 +94,6 @@ get "/users/request_password/:token" do
 end
 
 post '/request_password/new_password' do
-  "Hello World"
+  "Congratulation! Everything's done! ...more or less"
 end
 
