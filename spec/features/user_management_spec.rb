@@ -37,7 +37,7 @@ context "In order to use chitter as a maker I want to: " do
 		scenario "with an email that is already registered" do
 			expect{sign_up}.to change(User, :count).by(1)
 			expect{sign_up}.to change(User, :count).by(0)
-			expect(page).to have_content("This email is already teken")
+			expect(page).to have_content("This email is already taken")
 		end
 
 		scenario "with a username that is already taken" do
@@ -74,7 +74,7 @@ context "In order to use chitter as a maker I want to: " do
 
 	end		
 
-	feature "sing out" do
+	feature "sign out" do
 
 		before(:each) do
 			User.create(:name => "Elena Garrone",
