@@ -1,6 +1,12 @@
 require 'spec_helper'
+require_relative 'helpers/session'
 
 feature "User post a new peep" do
+
+	before(:each) do
+		sign_up
+	end
+
 	scenario "when browsing the homepage" do
 		expect(Peep.count).to eq(0)
 		visit '/'
@@ -10,11 +16,5 @@ feature "User post a new peep" do
 		expect(peep.message).to eq("Hi everyone!")
 	end
 
-	def add_peep(message)
-		within('#new-peep') do
-			fill_in 'peep', :with => message
-			click_button 'Add peep'
-		end
-	end
 end
 

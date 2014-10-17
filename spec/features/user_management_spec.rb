@@ -10,6 +10,8 @@ feature "In order to see what people have to say, I want to see all peeps: " do
 
 	scenario "when opening the homepage" do
 		visit'/'
+		sign_up
+		add_peep("Hi everyone!")
 		expect(page).to have_content("Hi everyone!")
 	end
 end

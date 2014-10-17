@@ -22,4 +22,12 @@ module SessionHelpers
 		click_button "Sign up"
 	end
 
+
+	def add_peep(message)
+		within('#new-peep') do
+			fill_in 'peep', :with => message
+			click_button 'Add peep'
+		end
+	end
+	
 end
