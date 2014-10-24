@@ -8,6 +8,7 @@ use Rack::Flash, :sweep => true
 
 enable :sessions
 set :session_secret, 'super_secret'
+set :public_folder, Proc.new{ File.join(root, '..', 'public')}
 
 get '/' do
 	@peeps = Peep.all.reverse 

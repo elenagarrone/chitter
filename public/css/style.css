@@ -1,0 +1,21 @@
+@import url(http://fonts.googleapis.com/css?family=Amatic+SC:700);
+
+.chitter {
+font-family: 'Amatic SC', cursive;
+	
+}
+
+html, body { 
+	margin-left: 5px; 
+	padding: 0px; 
+	border: 0px; 
+	margin-top: 0px;
+	background-color: #a7cece;
+	background: url(images/background.png);
+	background-repeat: repeat-x;
+}
+
+header {
+	background-color: #ffffff;
+	opacity: 1;
+}
