@@ -1,12 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Amatic+SC:700);
 
-.chitter {
-font-family: 'Amatic SC', cursive;
-	
-}
-
 html, body { 
-	margin-left: 5px; 
 	padding: 0px; 
 	border: 0px; 
 	margin-top: 0px;
@@ -15,13 +9,38 @@ html, body {
 	background-repeat: repeat-x;
 }
 
-header {
-	background-color: #ffffff;
-	opacity: 1;
+nav {
+	display: block;
 }
 
-h1 {
-	margin-left:auto;
-	margin-right:80%;
-	display: inline;
+.global-nav {
+border-bottom: 1px solid rgba(0,0,0,0.15);
+height: 46px;
+position: relative;
+width: 100%;
+
 }
+
+.global-nav-inner {
+	background: #ffffff;
+	height: 46px;
+}
+
+.global-nav .container {
+	max-width: 1190px;
+	text-align: center;
+	width: auto;
+}
+
+.container {
+	position: relative;
+	margin: 0 auto;
+}
+
+.icon-turtle {
+	display: inline-block;
+	margin-top: 6px;
+	width: 30px;
+	height: 30px;
+}
+
