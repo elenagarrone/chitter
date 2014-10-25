@@ -1,28 +1,16 @@
-<!DOCTYPE>
-<html>
+<h1>CHITTER</h1>
+<p><a href="/users/new">Sign up</a></p> 
+<p><a href="/sessions/new">Sign in</a></p> 
 
-	<head>
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-	</head>
+<ul>
+	<% @peeps.each do |peep| %>
+		<li><%= peep.message%> --> <%=peep.date%> (Peeped by: <%= peep.user.name %>)</li>
+	<% end %>
+</ul>
 
-	<body>
-		<header>
-			<h1 class="chitter">CHITTER</h1>
-			<p><a href="/users/new">Sign up</a></p> 
-			<p><a href="/sessions/new">Sign in</a></p> 
-		</header>
-		<ul>
-			<% @peeps.each do |peep| %>
-				<li><%= peep.message%> --> <%=peep.date%> (Peeped by: <%= peep.user.username %> --> <%= peep.user.name %> )</li>
-			<% end %>
-		</ul>
-
-		<div id="new-peep">
-			<form action="/peeps" method="post">
-				Peep: <input type="text" name="peep">
-				<input type="submit" value="Add peep">
-			</form>
-		</div>
-
-	</body>
-</html>
+<div id="new-peep">
+	<form action="/peeps" method="post">
+		Peep: <input type="text" name="peep">
+		<input type="submit" value="Add peep">
+	</form>
+</div>
