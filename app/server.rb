@@ -17,9 +17,13 @@ end
 
 post '/peeps' do
 	@user = User.first(:id => session[:user_id])
+	p @user
 	if @user
-		peep = params["peep"]
-		Peep.create(:message => peep, :user_id => @user.id)
+		msg = params["peep"]
+		peep = Peep.new(:message => msg)
+		peep.user = @user
+		puts "hello"
+		p peep.save
 		# @peep = @user.peeps.create(message: peep)
 		redirect to('/')
 	else
