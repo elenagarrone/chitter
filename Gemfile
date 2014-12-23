@@ -9,6 +9,7 @@ gem 'rack'
 gem 'sinatra-partial'
 
 group :development, :test do
+	gem "codeclimate-test-reporter", require: nil
 	gem 'launchy'
 	gem 'capybara'
 	gem 'rspec'
