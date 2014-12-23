@@ -15,12 +15,19 @@ feature "I should see these buttons: " do
 
   context "on the homepage" do
 
-    scenario "when signed in" do
+    scenario "when signed in i should see 'Sign out'" do
       sign_in('elena15', 'elena')
       visit '/'
       expect(page).to have_button('Sign out')
       expect(page).not_to have_link('Sign in')
       expect(page).not_to have_link('Sign up')
+    end
+
+    scenario "when signed out I should see 'Sign in' and 'Sign out'" do
+      visit '/'
+      expect(page).to have_link('Sign in')
+      expect(page).to have_link('Sign up')
+      expect(page).not_to have_button('Sign out')
     end
 
   end
