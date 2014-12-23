@@ -10,7 +10,7 @@ enable :sessions
 set :session_secret, 'super_secret'
 
 get '/' do
-	@peeps = Peep.all.reverse 
+	@peeps = Peep.all.reverse
 	erb :index
 end
 
@@ -82,7 +82,7 @@ post '/request_password' do
 	  @user.save
 	  "Here is your token: #{@user.password_token}"
 	else
-	  flash[:errors] = ["Sorry, the user you've entered does not exist, try again."]
+	  flash[:errors] = ["The user you've entered does not exist, try again."]
 	  redirect to ('/request_password')
 	end
 end
@@ -90,7 +90,7 @@ end
 get "/users/request_password/:token" do
 	user = User.first(:password_token => params[:token])
 	return redirect to ('/request_password') if !user# the token is in the db
-	time_request = user.password_token_timestamp 
+	time_request = user.password_token_timestamp
 	if Time.now - time_request < 3600
 		erb :"/users/new_password"
 	else
@@ -103,4 +103,3 @@ end
 post '/request_password/new_password' do
   "Congratulation! Everything's done! ...more or less"
 end
-

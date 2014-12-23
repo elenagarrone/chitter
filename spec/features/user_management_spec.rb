@@ -29,7 +29,7 @@ context "In order to use chitter as a maker I want to: " do
 		scenario "with a password that doesn't match" do
 			expect{sign_up('e@e.com', 'pass', 'tra', 'username')}.to change(User, :count).by (0)
 			expect(current_path).to eq('/users')
-			expect(page).to have_content("Sorry, your passwords don't match")
+			expect(page).to have_content("Your passwords don't match")
 		end
 
 		scenario "with an email that is already registered" do
@@ -88,7 +88,7 @@ context "In order to use chitter as a maker I want to: " do
 			expect(page).to have_content("Good bye!")
 			expect(page).not_to have_content("Welcome, elena15")
 		end
-		 
+
 	end
 
 end

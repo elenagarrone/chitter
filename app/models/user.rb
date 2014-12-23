@@ -21,7 +21,7 @@ class User
 	# validates_presence_of :password, :message => "You need to enter a password"
 	validates_uniqueness_of :username, :message => "This username is already taken"
 	validates_uniqueness_of :email, :message => "This email is already taken"
-	validates_confirmation_of :password, :message => "Sorry, your passwords don't match"
+	validates_confirmation_of :password, :message => "Your passwords don't match"
 	validates_length_of :username, :in => (1..20)
 
 	has n, :peeps, :through => Resource
