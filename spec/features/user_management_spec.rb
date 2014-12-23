@@ -88,6 +88,7 @@ context "In order to use chitter as a maker I want to: " do
 			expect(page).to have_content("Good bye!")
 			expect(page).not_to have_content("Welcome, elena15")
 		end
+		 
 	end
 
 end
