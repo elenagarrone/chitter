@@ -10,8 +10,8 @@ module SessionHelpers
 	def sign_up(name = "Elena Garrone",
 				username = "elena15",
 				email = "elena@example.com",
-				password = "elena",
-				password_confirmation = "elena")
+				password = "elena1",
+				password_confirmation = "elena1")
 		visit 'users/new'
 		expect(page.status_code).to eq(200)
 		fill_in :name, :with => name
@@ -22,6 +22,11 @@ module SessionHelpers
 		click_button "Sign up"
 	end
 
+	def sign_out
+		visit '/'
+		click_button("Sign out")
+	end
+
 
 	def add_peep(message)
 		within('#new-peep') do
@@ -29,5 +34,5 @@ module SessionHelpers
 			click_button 'Add peep'
 		end
 	end
-	
+
 end

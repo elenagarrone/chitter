@@ -1,3 +1,7 @@
+ENV['CODECLIMATE_REPO_TOKEN'] = '7e6252b6d8aaabb0f30efd4edd460cef5cef773551699fd0848eda38a43f8b84'
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
+
 ENV["RACK_ENV"] = 'test'
 
 require './app/server'
