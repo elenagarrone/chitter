@@ -12,6 +12,7 @@
         null,
         1,
         1,
+        140,
         null,
         1,
         17,
@@ -124,7 +125,7 @@
         null,
         1,
         1,
-        null,
+        1,
         1
       ],
       "/home/elena/projects/chitter/app/models/peep.rb": [
@@ -133,7 +134,6 @@
         1,
         null,
         1,
-        null,
         1,
         1,
         1,
@@ -200,6 +200,6 @@
         null
       ]
     },
-    "timestamp": 1419427397
+    "timestamp": 1419429052
   }
 }
