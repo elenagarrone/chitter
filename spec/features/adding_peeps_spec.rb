@@ -7,14 +7,14 @@ feature "User post a new peep" do
 		User.create(:name => "Elena Garrone",
 		:username => "elena15",
 		:email => "elena@example.com",
-		:password => "elena",
-		:password_confirmation => "elena")
+		:password => "elena1",
+		:password_confirmation => "elena1")
 	end
 
 	feature "when browsing the homepage" do
 
 		scenario "while signed in" do
-			sign_in('elena15', 'elena')
+			sign_in('elena15', 'elena1')
 			expect(Peep.count).to eq(0)
 			visit '/'
 			add_peep("Hi everyone!")

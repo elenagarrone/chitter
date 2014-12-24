@@ -27,7 +27,7 @@ context "In order to use chitter as a maker I want to: " do
 		end
 
 		scenario "with a password that doesn't match" do
-			expect{sign_up('e@e.com', 'pass', 'tra', 'username')}.to change(User, :count).by (0)
+			expect{sign_up('ele', 'ele', 'e@e.com', 'tratra', 'username')}.to change(User, :count).by (0)
 			expect(current_path).to eq('/users')
 			expect(page).to have_content("Your passwords don't match")
 		end
@@ -52,21 +52,21 @@ context "In order to use chitter as a maker I want to: " do
 			User.create(:name => "Elena Garrone",
 						:username => "elena15",
 						:email => "elena@example.com",
-						:password => "elena",
-						:password_confirmation => "elena")
+						:password => "elena1",
+						:password_confirmation => "elena1")
 		end
 
 		scenario "with correct credentials" do
 			visit '/'
 			expect(page).not_to have_content("Welcome, elena15")
-			sign_in('elena15', 'elena')
+			sign_in('elena15', 'elena1')
 			expect(page).to have_content("Welcome, elena15")
 		end
 
 		scenario "with incorrect credentials" do
 			visit '/'
 			expect(page).not_to have_content("Welcome, elena15")
-			sign_in('elena15', 'wrong')
+			sign_in('elena15', 'wrong1')
 			expect(page).not_to have_content("Welcome, elena15")
 		end
 
@@ -78,12 +78,12 @@ context "In order to use chitter as a maker I want to: " do
 			User.create(:name => "Elena Garrone",
 						:username => "elena15",
 						:email => "elena@example.com",
-						:password => "elena",
-						:password_confirmation => "elena")
+						:password => "elena1",
+						:password_confirmation => "elena1")
 		end
 
 		scenario "while being signed in" do
-			sign_in('elena15', 'elena')
+			sign_in('elena15', 'elena1')
 			click_button "Sign out"
 			expect(page).to have_content("Good bye!")
 			expect(page).not_to have_content("Welcome, elena15")

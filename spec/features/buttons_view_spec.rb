@@ -9,14 +9,14 @@ feature "I should see these buttons: " do
     User.create(:name => "Elena Garrone",
     :username => "elena15",
     :email => "elena@example.com",
-    :password => "elena",
-    :password_confirmation => "elena")
+    :password => "elena1",
+    :password_confirmation => "elena1")
   end
 
   context "on the homepage" do
 
     scenario "when signed in i should see 'Sign out'" do
-      sign_in('elena15', 'elena')
+      sign_in('elena15', 'elena1')
       visit '/'
       expect(page).to have_button('Sign out')
       expect(page).not_to have_link('Sign in')

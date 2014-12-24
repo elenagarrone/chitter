@@ -5,9 +5,9 @@ class User
 	include DataMapper::Resource
 
 	property :id, Serial
-	property :email, String
+	property :email, String, :unique => true, :message => "This email is already taken"
 	property :name, String
-	property :username, String
+	property :username, String, :unique => true, :message => "This username is already taken"
 	property :password_digest, Text
 	property :password_token, Text
 	property :password_token_timestamp, Time
@@ -23,6 +23,7 @@ class User
 	validates_uniqueness_of :email, :message => "This email is already taken"
 	validates_confirmation_of :password, :message => "Your passwords don't match"
 	validates_length_of :username, :in => (1..20)
+	validates_length_of :password, :equals => 6, :message => "Password needs to be of 6 characters"
 
 	has n, :peeps, :through => Resource
 

@@ -9,8 +9,8 @@ feature "Resetting the password" do
     User.create(:name => "Elena Garrone",
     :username => "elena15",
     :email => "elena@example.com",
-    :password => "elena",
-    :password_confirmation => "elena")
+    :password => "elena1",
+    :password_confirmation => "elena1")
   end
 
   scenario "when on the sign in page" do
