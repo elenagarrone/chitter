@@ -19,9 +19,10 @@ Technologies:
 
 On Heroku:
 ----------
-######It's a work in progress
+######It's a work in progress...
 Staging:
-https://live-chitter.herokuapp.com/ </br>
+https://live-chitter.herokuapp.com/
+
 Production: https://staging-chitter.herokuapp.com/
 
 To do:
