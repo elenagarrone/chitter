@@ -1,4 +1,5 @@
 get '/request_password' do
+  @on_page = true
   erb :"users/request_password"
 end
 

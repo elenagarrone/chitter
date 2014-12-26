@@ -1,4 +1,5 @@
 get '/users/new' do
+  @sign_up_page = true
   @user = User.new
   erb :"users/new"
 end

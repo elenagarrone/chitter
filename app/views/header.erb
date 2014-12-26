@@ -1,9 +1,29 @@
 <header>
-  <% if current_user %>
-    Welcome, <%= current_user.username %>!
-    <form method="post" action="/sessions">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Sign out">
-    </form>
-  <%end%>
+  <h1>CHITTER</h1>
+  <% unless @on_page %>
+    <% if current_user %>
+      Welcome, <%= current_user.username %>!
+      <form method="post" action="/sessions">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Sign out">
+      </form>
+
+      <div id="new-peep">
+        <form action="/peeps" method="post">
+          Peep: <input type="text" name="peep">
+          <input type="submit" value="Add peep">
+        </form>
+      </div>
+    <% else %>
+      <% if @sign_in_page %>
+        <p><a href="/users/new">Sign up</a></p>
+      <% elsif @sign_up_page %>
+        <p><a href="/sessions/new">Sign in</a></p>
+      <% else %>
+        <p><a href="/users/new">Sign up</a></p>
+        <p><a href="/sessions/new">Sign in</a></p>
+      <% end %>
+    <% end %>
+  <% end %>
+
 </header>

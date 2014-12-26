@@ -12,46 +12,16 @@
         1,
         1,
         1,
-        null,
-        1,
-        null,
         1,
         1,
-        172
-      ],
-      "/home/elena/projects/chitter/app/helpers/application.rb": [
-        1,
-        null,
-        1,
-        89,
-        null,
-        null,
-        null
-      ],
-      "/home/elena/projects/chitter/app/data_mapper_setup.rb": [
         1,
         null,
         1,
         null,
         1,
         1,
-        1,
+        172,
         1
-      ],
-      "/home/elena/projects/chitter/app/models/peep.rb": [
-        1,
-        null,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null
       ],
       "/home/elena/projects/chitter/app/models/user.rb": [
         1,
@@ -109,6 +79,40 @@
         null,
         null
       ],
+      "/home/elena/projects/chitter/app/models/peep.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/home/elena/projects/chitter/app/helpers/application.rb": [
+        1,
+        null,
+        1,
+        64,
+        null,
+        null,
+        null
+      ],
+      "/home/elena/projects/chitter/app/data_mapper_setup.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1
+      ],
       "/home/elena/projects/chitter/app/controllers/application.rb": [
         1,
         21,
@@ -133,6 +137,7 @@
         1,
         8,
         8,
+        8,
         null,
         null,
         1,
@@ -152,6 +157,7 @@
       ],
       "/home/elena/projects/chitter/app/controllers/sessions.rb": [
         1,
+        10,
         10,
         null,
         null,
@@ -174,6 +180,7 @@
       ],
       "/home/elena/projects/chitter/app/controllers/request_password.rb": [
         1,
+        4,
         4,
         null,
         null,
@@ -209,6 +216,6 @@
         null
       ]
     },
-    "timestamp": 1419608413
+    "timestamp": 1419611041
   }
 }
