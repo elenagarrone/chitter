@@ -16,14 +16,15 @@ feature "Buttons: " do
 
   context "on the homepage" do
 
-    scenario "when signed in i should see 'Sign out'" do
+    scenario "when signed in I should see 'Sign out' and 'Add peep'" do
       visit '/'
       expect(page).to have_button('Sign out')
+      expect(page).to have_button('Add peep')
       expect(page).not_to have_link('Sign in')
       expect(page).not_to have_link('Sign up')
     end
 
-    scenario "when signed out I should see 'Sign in' and 'Sign out'" do
+    scenario "when signed out I should see 'Sign in' and 'Sign up'" do
       sign_out
       visit '/'
       expect(page).to have_link('Sign in')
@@ -36,8 +37,19 @@ feature "Buttons: " do
   context "on the sign up page" do
 
     scenario "I should see 'sign in'" do
+      sign_out
       visit '/users/new'
       expect(page).to have_link('Sign in')
+    end
+
+  end
+
+  context "on the sign in page" do
+
+    scenario "I should see 'sign up'" do
+      sign_out
+      visit '/sessions/new'
+      expect(page).to have_link('Sign up')
     end
 
   end

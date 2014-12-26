@@ -26,6 +26,11 @@ feature "Resetting the password" do
     expect(current_path).to eq('/request_password')
   end
 
+  scenario "on the page to register a new password" do
+    visit 'users/request_password/:token'
+    expect(page).to have_content("Please, insert a new password:")
+  end
+
   scenario "entering the wrong email to reset the password" do
     visit '/request_password'
     fill_in :email, :with => 'elena@wrong.com'
