@@ -15,12 +15,13 @@ Technologies:
 - PSQL
 - BCrypt
 - DataMapper
+- Heroku
 
 On Heroku:
 ----------
 ######It's a work in progress
 Staging:
-https://live-chitter.herokuapp.com/
+https://live-chitter.herokuapp.com/ </br>
 Production: https://staging-chitter.herokuapp.com/
 
 To do:
