@@ -29,5 +29,9 @@ post '/request_password/new_password' do
     user.update(password: params[:password], password_confirmation: params[:password_confirmation])
     erb :"users/succesful"
   end
-  "Congratulation! Everything's done! ...more or less"
+  "Sorry, something went wrong. Please, try again."
+end
+
+get '/users/succesful' do
+  erb :"users/succesful"
 end

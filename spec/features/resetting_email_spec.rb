@@ -26,11 +26,6 @@ feature "Resetting the password" do
     expect(current_path).to eq('/request_password')
   end
 
-  scenario "on the page to register a new password" do
-    visit 'users/request_password/:token'
-    expect(page).to have_content("Please, insert a new password:")
-  end
-
   scenario "entering the wrong email to reset the password" do
     visit '/request_password'
     fill_in :email, :with => 'elena@wrong.com'
@@ -44,6 +39,25 @@ feature "Resetting the password" do
     fill_in :email, :with => 'elena@example.com'
     click_button('Reset Password')
     expect(page).to have_content('Here is your token:')
+  end
+
+  scenario "on the page to register a new password" do
+    visit 'users/request_password/:token'
+    expect(page).to have_content("Please, insert a new password:")
+  end
+
+  scenario "entering the new password with the wrong token" do
+    visit 'users/request_password/:token'
+    fill_in :password, :with => 'newpassword'
+    fill_in :password_confirmation, :with => 'newpassword'
+    click_on('Submit')
+    expect(page).to have_content("Sorry, something went wrong. Please, try again.")
+  end
+
+  scenario "after entering the new password with the correct tocken" do
+    visit '/users/succesful'
+    save_and_open_page
+    expect(page).to have_content("Congratulation! Everything's done!")
   end
 
 end
