@@ -8,7 +8,7 @@ post '/request_password' do
   @user = User.first(:email => email)
   if @user
     @user.password_token = (1..64).map{ ('A'..'Z').to_a.sample }.join
-    @user.save
+    @user.save #NOT SAVING THE TOKEN ON THE DATABASE!!!
     erb :"users/instructions"
   else
     flash[:errors] = ["The user you've entered does not exist, try again."]
