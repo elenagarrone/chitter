@@ -20,7 +20,7 @@
         null,
         1,
         1,
-        196,
+        206,
         1
       ],
       "/home/elena/projects/chitter/app/models/user.rb": [
@@ -36,12 +36,7 @@
         1,
         1,
         1,
-        1,
         null,
-        1,
-        1,
-        null,
-        1,
         1,
         1,
         null,
@@ -54,8 +49,8 @@
         1,
         null,
         1,
-        21,
-        21,
+        23,
+        23,
         null,
         null,
         1,
@@ -98,7 +93,8 @@
         1,
         null,
         1,
-        72,
+        76,
+        76,
         null,
         null,
         null
@@ -125,7 +121,6 @@
         2,
         2,
         2,
-        null,
         2,
         null,
         0,
@@ -135,23 +130,23 @@
       ],
       "/home/elena/projects/chitter/app/controllers/users.rb": [
         1,
-        8,
-        8,
-        8,
+        10,
+        10,
+        10,
         null,
         null,
         1,
-        7,
+        9,
         null,
         null,
         null,
         null,
-        7,
+        9,
         4,
         4,
         null,
-        3,
-        3,
+        5,
+        5,
         null,
         null
       ],
@@ -214,6 +209,6 @@
         null
       ]
     },
-    "timestamp": 1419613550
+    "timestamp": 1419771496
   }
 }

@@ -32,6 +32,11 @@ context "In order to use chitter as a maker I want to: " do
 			expect(page).to have_content("Your passwords don't match")
 		end
 
+		scenario "with a password that is not long enough" do
+			expect{sign_up('ele', 'ele', 'e@e.com', 'four', 'four')}.to change(User, :count).by (0)
+			expect(page).to have_content("Password needs to be of at least 6 characters")
+		end
+
 		scenario "with an email that is already registered" do
 			expect{sign_up}.to change(User, :count).by(1)
 			expect{sign_up}.to change(User, :count).by(0)
@@ -42,6 +47,11 @@ context "In order to use chitter as a maker I want to: " do
 			expect{sign_up}.to change(User, :count).by(1)
 			expect{sign_up}.to change(User, :count).by(0)
 			expect(page).to have_content("This username is already taken")
+		end
+
+		scenario "with a username that is longer than what it should be" do
+			expect{sign_up('ele', '111111111111111111111', 'e@e.com', 'helloo', 'helloo')}.to change(User, :count).by (0)
+			expect(page).to have_content("Username must be between 1 and 20 characters long")
 		end
 
 	end
