@@ -1,5 +1,5 @@
 <ul>
-	<% @peeps.each do |peep| %>
-		<li><%= peep.message%> --> <%=peep.date%> (Peeped by: <%= peep.user.name %>)</li>
-	<% end %>
+  <% @peeps.each do |peep| %>
+    <li><%= peep.message%> --> <%=peep.date%> (Peeped by: <%= peep.user.username %>)</li>
+  <% end %>
 </ul>

@@ -23,6 +23,14 @@ feature "User post a new peep" do
 		expect(peep.message).to eq("Hi everyone!")
 	end
 
+	scenario "I should see the username of who posted the peep" do
+		sign_in('elena15', 'elena1')
+		visit '/'
+		add_peep("Hi everyone!")
+		peep = Peep.first
+		expect(page).to have_content('Hi everyone! --> ' + "#{peep.date} " + "(Peeped by: elena15)")
+	end
+
 	scenario "only when logged in" do
 			visit '/'
 			expect(page).not_to have_field('#new_peep')
