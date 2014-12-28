@@ -27,6 +27,7 @@ Production: https://staging-chitter.herokuapp.com/
 
 To do:
 -----
+- [ ] check why password token is not saved on the database;
 - [ ] password token should be sent by email;
 - [ ] password token should be valid only inside of a time limit;
 
