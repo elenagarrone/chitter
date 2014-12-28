@@ -1,0 +1,10 @@
+Here is your token: <%= @user.password_token %>
+
+<h3>WARNING:</h3>
+This token should be sent by email but, since the project is still in progress (see the 'To do' list on the README file), if you want to continue you need to go to one of these options (depending if you are trying the application on localhost, heroku staging or production):
+<ul>
+  <li>http://localhost:9292/users/request_password/(your_token)</li>
+  (Example: http://localhost:9292/users/request_password/JGYHBWKQYWHBMJNIPXVDFJGLZXQFCCFNNMXETGEEOAXTNJFKNKCFVYOWATZQJZYW)
+  <li>https://staging-chitter.herokuapp.com/users/request_password/(your_token)</li>
+  <li>https://live-chitter.herokuapp.com/users/request_password/(your_token)</li>
+</ul>
