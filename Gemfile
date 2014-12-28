@@ -9,10 +9,10 @@ gem 'rack'
 gem 'sinatra-partial'
 
 group :development, :test do
-	gem "codeclimate-test-reporter", require: nil
-	gem 'launchy'
-	gem 'capybara'
-	gem 'rspec'
-	gem 'shotgun'
-	gem 'database_cleaner'
+  gem "codeclimate-test-reporter", require: nil
+  gem 'launchy'
+  gem 'capybara'
+  gem 'rspec'
+  gem 'shotgun'
+  gem 'database_cleaner'
 end

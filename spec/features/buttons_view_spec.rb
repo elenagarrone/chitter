@@ -3,15 +3,15 @@ require_relative 'helpers/session'
 
 include SessionHelpers
 
-feature "Buttons: " do
+feature "Buttons:" do
 
   before(:each) do
     User.create(:name => "Elena Garrone",
-    :username => "elena15",
-    :email => "elena@example.com",
-    :password => "elena1",
-    :password_confirmation => "elena1")
-    sign_in('elena15', 'elena1')
+      :username => "elena15",
+      :email => "elena@example.com",
+      :password => "elena1",
+      :password_confirmation => "elena1")
+      sign_in('elena15', 'elena1')
   end
 
   context "on the homepage" do

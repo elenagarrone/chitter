@@ -27,8 +27,8 @@ Production: https://staging-chitter.herokuapp.com/
 
 To do:
 -----
-- [ ] request for new password;
 - [ ] password token should be sent by email;
+- [ ] password token should be valid only inside of a time limit;
 
 How to use:
 ----------
