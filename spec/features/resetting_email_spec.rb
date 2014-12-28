@@ -47,16 +47,15 @@ feature "Resetting the password" do
   end
 
   scenario "entering the new password with the wrong token" do
-    visit 'users/request_password/:token'
+    visit 'users/request_password/ARKFLZHUWQMJFINJXQOAYWFFHQKVSTCZTKBSJTIUZLXSKELXKKOQJPNXZINTMDQH'
     fill_in :password, :with => 'newpassword'
     fill_in :password_confirmation, :with => 'newpassword'
     click_on('Submit')
     expect(page).to have_content("Sorry, something went wrong. Please, try again.")
   end
 
-  scenario "after entering the new password with the correct tocken" do
+  scenario "after entering the new password with the correct token" do
     visit '/users/succesful'
-    save_and_open_page
     expect(page).to have_content("Congratulation! Everything's done!")
   end
 

@@ -24,9 +24,9 @@ get "/users/request_password/:token" do
 end
 
 post '/request_password/new_password' do
-  user = User.first(:password_token => params[:password_token])
-  if user
-    user.update(password: params[:password], password_confirmation: params[:password_confirmation])
+  @user = User.first(:password_token => @token)
+  if @user
+    @user.update(password: params[:password], password_confirmation: params[:password_confirmation])
     erb :"users/succesful"
   end
   "Sorry, something went wrong. Please, try again."
